@@ -1,16 +1,13 @@
 package com.taapti.dynamic_type_resolution.service;
 
-import org.springframework.stereotype.Service;
+/**
+ * Service interface for managing car inventory operations.
+ */
+public interface CarInventoryService {
 
-@Service
-public class CarInventoryService {
-
-    private Integer carPartsCount = 2;
-
-    public void reduce() {
-        if(carPartsCount == 0) {
-            throw new RuntimeException("Cannot create new car due to lack of parts");
-        }
-        carPartsCount -= 1;
-    }
+    /**
+     * Reduces the count of car parts in the inventory.
+     * Throws a RuntimeException if there are no parts left.
+     */
+    void reduce();
 }
