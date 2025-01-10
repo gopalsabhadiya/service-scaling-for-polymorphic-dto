@@ -1,4 +1,4 @@
-package com.taapti.dynamic_type_resolution;
+package com.taapti.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * This class contains the main method which serves as the entry point for the Spring Boot application.
  */
 @SpringBootApplication
-public class DynamicTypeResolutionApplication {
+public class Application {
 
 	/**
 	 * The main method which serves as the entry point for the Spring Boot application.
@@ -16,6 +16,6 @@ public class DynamicTypeResolutionApplication {
 	 * @param args command-line arguments passed to the application
 	 */
 	public static void main(String[] args) {
-		SpringApplication.run(DynamicTypeResolutionApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 }

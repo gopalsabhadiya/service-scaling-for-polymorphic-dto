@@ -1,6 +1,6 @@
-package com.taapti.dynamic_type_resolution.service;
+package com.taapti.app.service;
 
-import com.taapti.dynamic_type_resolution.dto.Bike;
+import com.taapti.app.dto.Bike;
 
 /**
  * Service interface for handling operations related to bikes.

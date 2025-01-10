@@ -1,6 +1,6 @@
-package com.taapti.dynamic_type_resolution.service;
+package com.taapti.app.service;
 
-import com.taapti.dynamic_type_resolution.dto.Bike;
+import com.taapti.app.dto.Bike;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -11,7 +11,7 @@ import java.util.UUID;
  * Service implementation for handling operations related to bikes.
  */
 @Service
-public class BikeServiceImpl extends VehicleCommon implements BikeService {
+class BikeServiceImpl extends VehicleCommon implements BikeService {
 
     private final Map<String, Bike> bikeStore = new HashMap<>();
 
@@ -36,5 +36,10 @@ public class BikeServiceImpl extends VehicleCommon implements BikeService {
         );
         createVehicleLog(id);
         return bikeStore.get(id);
+    }
+
+    @Override
+    public Class<Bike> getType() {
+        return Bike.class;
     }
 }

@@ -1,6 +1,6 @@
-package com.taapti.dynamic_type_resolution.service;
+package com.taapti.app.service;
 
-import com.taapti.dynamic_type_resolution.dto.Car;
+import com.taapti.app.dto.Car;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -41,5 +41,10 @@ class CarServiceImpl extends VehicleCommon implements CarService {
         );
         createVehicleLog(id);
         return carStore.get(id);
+    }
+
+    @Override
+    public Class<Car> getType() {
+        return Car.class;
     }
 }

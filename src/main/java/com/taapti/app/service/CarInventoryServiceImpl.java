@@ -1,4 +1,4 @@
-package com.taapti.dynamic_type_resolution.service;
+package com.taapti.app.service;
 
 import org.springframework.stereotype.Service;
 

@@ -1,6 +1,6 @@
-package com.taapti.dynamic_type_resolution.service;
+package com.taapti.app.service;
 
-import com.taapti.dynamic_type_resolution.dto.Vehicle;
+import com.taapti.app.dto.Vehicle;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 

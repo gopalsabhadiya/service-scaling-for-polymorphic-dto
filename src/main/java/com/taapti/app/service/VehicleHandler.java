@@ -1,7 +1,6 @@
-package com.taapti.dynamic_type_resolution.service;
+package com.taapti.app.service;
 
-import com.taapti.dynamic_type_resolution.dto.Vehicle;
-import lombok.extern.slf4j.Slf4j;
+import com.taapti.app.dto.Vehicle;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,9 +12,8 @@ import java.util.stream.Collectors;
  * This class delegates the creation of vehicles to the appropriate service implementation
  * based on the type of vehicle.
  */
-@Slf4j
 @Service
-public class VehicleHandler implements VehicleService<Vehicle> {
+class VehicleHandler implements VehicleService<Vehicle> {
 
     private final Map<Class<?>, VehicleService<Vehicle>> serviceMap;
     private final VehicleNotificationService vehicleNotificationService;
@@ -36,7 +34,7 @@ public class VehicleHandler implements VehicleService<Vehicle> {
                         .stream()
                         .collect(
                                 Collectors.toMap(
-                                        VehicleService::getGenericType,
+                                        VehicleService::getType,
                                         service -> (VehicleService<Vehicle>) service
                                 )
                         );
@@ -52,8 +50,18 @@ public class VehicleHandler implements VehicleService<Vehicle> {
      */
     @Override
     public Vehicle create(Vehicle vehicle) {
+        //With some creativity and reflection, you can also throw error at compile-time or runtime in the constructor
+        // to make sure your application doesn't start without service for new Vehicle type
+        if(!serviceMap.containsKey(vehicle.getClass())) {
+            throw new RuntimeException("Unsupported vehicle type: " + vehicle.getClass().getSimpleName());
+        }
         Vehicle created = serviceMap.get(vehicle.getClass()).create(vehicle);
         vehicleNotificationService.sendUserNotification(created);
         return created;
+    }
+
+    @Override
+    public Class<Vehicle> getType() {
+        return Vehicle.class;
     }
 }

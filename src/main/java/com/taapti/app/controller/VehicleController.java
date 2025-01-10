@@ -1,7 +1,7 @@
-package com.taapti.dynamic_type_resolution.controller;
+package com.taapti.app.controller;
 
-import com.taapti.dynamic_type_resolution.dto.Vehicle;
-import com.taapti.dynamic_type_resolution.service.VehicleHandler;
+import com.taapti.app.dto.Vehicle;
+import com.taapti.app.service.VehicleService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/vehicle")
 public class VehicleController {
 
-    private final VehicleHandler vehicleHandler;
+    private final VehicleService<Vehicle> vehicleHandler;
 
     /**
      * Creates a new vehicle.

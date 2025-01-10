@@ -1,4 +1,4 @@
-package com.taapti.dynamic_type_resolution.dto;
+package com.taapti.app.dto;
 
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
